@@ -1,20 +1,20 @@
-﻿from chromadb import HttpClient
+﻿import chromadb
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 import os
 import uuid
+from chromadb.config import Settings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize ChromaDB HTTP client for Cloud Run
-'''
-client = HttpClient(
-    Settings(chroma_api_impl="rest", chroma_server_host=os.getenv("CHROMADB_HOST", "localhost"), chroma_server_http_port=8000)
-)
-'''
-client = HttpClient(
-    host=os.getenv("CHROMADB_HOST"),
-    port=int(os.getenv("CHROMADB_PORT")),
-    ssl=True if os.getenv("CHROMADB_PORT") == "443" else False
-)
+# Create a Chroma client with the service URL and API token
+client = chromadb.HttpClient(host=os.getenv("CHROMADB_HOST"), port=443, ssl=True,
+                             settings=Settings(chroma_client_auth_provider="chromadb.auth.token_authn.TokenAuthClientProvider",
+                                               chroma_client_auth_credentials=os.getenv("CHROMADB_API_TOKEN"),
+                                               anonymized_telemetry=False))
+
 embeddings = OpenAIEmbeddings()
 
 async def get_context(query: str) -> str:
