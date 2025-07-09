@@ -1,9 +1,9 @@
-## process diagram
-
 
 ## deploy chromaDB on GCP
 
-to deploy chromaDB on GCP, i used the steps used on the following repo. here is the summary
+to deploy chromaDB on GCP, i used the steps used on the following repo. https://github.com/HerveMignot/chromadb-on-gcp/tree/main
+
+here is the summary
 
 ### create bucket
 gsutil mb -p fusion-ai-wil02 -l us-central1  gs://fusion-ai-wil02-bucket/
@@ -55,3 +55,18 @@ gcloud run deploy voice-ai-agent \
   --set-env-vars "CHROMADB_HOST=chroma-xxx.run.app" \
   --service-account voice-agent-sa@<project-id>.iam.gserviceaccount.com
 
+## process diagram
+
+```mermaid
+flowchart TD
+    A[User Phone] <--> B[Twilio: Inbound Call Handling]
+    B --> C[Google Cloud Run: FastAPI WebSocket Endpoint]
+    C --> D[LangChain: STT - Deepgram]
+    D --> E[ChromaDB: RAG - FAQs, Product Info, User Profiles, Call Transcriptions]
+    E --> F[LangGraph: Sales/Support Intent Orchestration & State Management]
+    F --> G[OpenAI GPT: Response Generation]
+    G --> H[LangChain: TTS - Google Cloud Text-to-Speech]
+    H --> I[Google Cloud Run: Stream Response Audio]
+    I --> J[Twilio: Deliver Audio to User]
+
+```

@@ -62,3 +62,4 @@ Thumbs.db # Windows specific
 
 # test files
 test_*.py
+test
