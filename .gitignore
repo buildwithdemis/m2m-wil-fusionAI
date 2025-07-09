@@ -1,0 +1,61 @@
+﻿# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+#google-credentials
+google-credentials.json
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Database files
+*.sqlite3
+*.db
+test_db.db # If you have a specific test database file
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Uploaded files / Media files
+/media/
+/static/ # If you serve static files from a specific directory
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Pipenv
+Pipfile.lock # Include if you want to ensure exact dependency versions across environments
+
+# Poetry
+poetry.lock # Include if you want to ensure exact dependency versions across environments
+
+# PDM
+pdm.lock # Include if you want to ensure exact dependency versions across environments
+.pdm.toml
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+.coverage
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
+
+# Miscellaneous
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
