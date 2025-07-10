@@ -55,6 +55,23 @@ gcloud run deploy voice-ai-agent \
   --set-env-vars "CHROMADB_COLLECTION_NAME=knowledge_base,BUCKET_NAME=fusion-xxx-bucket,SERVER_HOST=voice-ai-agent-xxx.us-central1.run.app,CHROMADB_SERVICE_NAME=chroma,CHROMADB_SSL=True" \
   --service-account voice-agent-sa@<project-id>.iam.gserviceaccount.com
 
+### Test endpoint connecton
+
+To test the `/voice` endpoint, run:
+```bash
+ curl -X POST https://voice-ai-agent-xxx.run.app/voice`
+
+
+This should return the following XML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Connect>
+    <Stream url="wss://voice-ai-agent-xx.run.app/twilio-websocket" />
+  </Connect>
+</Response>
+```
+
 ## process diagram
 
 ```mermaid
