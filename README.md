@@ -51,8 +51,8 @@ gcloud run deploy voice-ai-agent \
   --region us-central1 \
   --platform managed \
   --allow-unauthenticated \
-  --set-secrets "OPENAI_API_KEY=openai-api-key:latest,TWILIO_ACCOUNT_SID=twilio-account-sid:latest,TWILIO_AUTH_TOKEN=twilio-auth-token:latest,DEEPGRAM_API_KEY=deepgram-api-key:latest" \
-  --set-env-vars "CHROMADB_HOST=chroma-xxx.run.app" \
+  --set-secrets "OPENAI_API_KEY=openai-api-key:latest,TWILIO_ACCOUNT_SID=twilio-account-sid:latest,TWILIO_AUTH_TOKEN=twilio-auth-token:latest,DEEPGRAM_API_KEY=deepgram-api-key:latest,CHROMADB_API_TOKEN=chromadb-api-token:latest" \
+  --set-env-vars "CHROMADB_COLLECTION_NAME=knowledge_base,BUCKET_NAME=fusion-xxx-bucket,SERVER_HOST=voice-ai-agent-xxx.us-central1.run.app,CHROMADB_SERVICE_NAME=chroma,CHROMADB_SSL=True" \
   --service-account voice-agent-sa@<project-id>.iam.gserviceaccount.com
 
 ## process diagram
