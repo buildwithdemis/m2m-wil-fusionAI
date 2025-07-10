@@ -74,25 +74,25 @@ This should return the following XML:
 
 ## Process Description
 
-* Inbound Call Handling:
+### * Inbound Call Handling:
 
 Twilio receives an inbound call and streams audio to a FastAPI WebSocket endpoint using Twilio Media Streams.
 
 The FastAPI server, deployed on Google Cloud Run, processes the audio in real-time.
 
-* Audio Processing:
+### * Audio Processing:
 
 Deepgram transcribes incoming audio to text with low latency (~100-200ms).
 
 LangChain processes the transcription to extract intent (sales or support).
 
-* Context Retrieval (RAG):
+### * Context Retrieval (RAG):
 
 LangChain queries ChromaDB with the transcribed text to retrieve relevant FAQs, product info, user profiles, or past conversation transcripts.
 
 Transcribed call conversations are stored in ChromaDB after each interaction for future context.
 
-* Conversation Orchestration:
+### * Conversation Orchestration:
 
 LangGraph identifies the intent (sales or support) and routes the query:
 
@@ -100,28 +100,28 @@ Sales: Fetch product details from ChromaDB, generate a promotional response.
 
 Support: Retrieve user profile or conversation history, escalate if needed.
 
-* Response Generation:
+### * Response Generation:
 
 OpenAI GPT processes the transcribed query + RAG context to generate a response.
 
 LangChain structures prompts to ensure intent-specific responses.
 
-* Audio Synthesis:
+### * Audio Synthesis:
 
 Google Cloud Text-to-Speech converts the LLM response to audio (using Wavenet voice for natural tone).
 
 Audio is streamed back to Twilio via FastAPI.
 
-* Response Delivery:
+### * Response Delivery:
 
 Twilio plays the synthesized audio to the caller.
 
-* Conversation Storage:
+### * Conversation Storage:
 
 After the call, the transcription is stored in ChromaDB with metadata (e.g., call ID, intent) for future RAG queries.
 
 
-## process diagram
+## Process diagram
 
 ```mermaid
 flowchart TD
