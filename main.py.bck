@@ -8,11 +8,11 @@ from orchestrator import handle_conversation
 load_dotenv()
 app = FastAPI()
 
-@app.post("/voice")
+@app.get("/voice")
 async def voice_webhook():
     response = VoiceResponse()
     connect = Connect()
-    connect.stream(url=f"wss://{os.getenv('SERVER_HOST', 'voice-ai-agent-842779538385.us-central1.run.app')}/twilio-websocket")
+    connect.stream(url=f"wss://{os.getenv('SERVER_HOST', 'voice-ai-agent-xxx.a.run.app')}/twilio-websocket")
     response.append(connect)
     return str(response)
 

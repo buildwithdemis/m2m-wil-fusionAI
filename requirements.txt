@@ -11,3 +11,4 @@ twilio
 langgraph
 python-dotenv
 gunicorn
+websockets

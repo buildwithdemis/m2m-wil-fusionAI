@@ -1,0 +1,11 @@
+﻿
+SERVICE_ACCOUNT: voice-agent-sa@<project-id>.iam.gserviceaccount.com
+CHROMADB_COLLECTION_NAME: knowledge_base
+BUCKET_NAME: fusion-xxx-bucket
+SERVER_HOST: voice-ai-agent-xxx.us-central1.run.app
+CHROMADB_SERVICE_NAME: chroma
+CHROMADB_SSL: True
+CHROMADB_PORT: 443
+CHROMADB_HOST: chroma-xxx.us-central1.run.app
+
+LANGCHAIN_TRACING_V2: "true"

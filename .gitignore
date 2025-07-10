@@ -63,3 +63,6 @@ Thumbs.db # Windows specific
 # test files
 test_*.py
 test
+
+#sensitive values stored in yaml, for gcloud deployment
+env.yaml
