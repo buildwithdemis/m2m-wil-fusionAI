@@ -1,3 +1,9 @@
+---
+noteId: "a5c433d0669311f0a8d32f47963ec631"
+tags: []
+
+---
+
 ## deploy chromaDB on GCP
 
 to deploy chromaDB on GCP, i used the steps used on the following repo. https://github.com/HerveMignot/chromadb-on-gcp/tree/main
