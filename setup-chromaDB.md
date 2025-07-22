@@ -1,8 +1,3 @@
----
-noteId: "a5c433d0669311f0a8d32f47963ec631"
-tags: []
-
----
 
 ## deploy chromaDB on GCP
 
